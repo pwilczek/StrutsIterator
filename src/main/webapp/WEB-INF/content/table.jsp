@@ -11,7 +11,7 @@
             <tr>
                 <td><s:checkbox name="selected" fieldValue="%{id}"/></td>
                 <td><s:property value="name"/></td>
-                <td>TBD</td>
+                <td><img src="images\excel.png" style="width:30px; height:30px"></td>
             </tr>
         </s:iterator>
     </table>
