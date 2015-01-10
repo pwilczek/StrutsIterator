@@ -2,11 +2,11 @@ package name.wilu.model;
 
 public class LookupRequest {
 
-    private boolean selected;
-    private String name;
+    private final Long id;
+    private final String name;
 
-    public LookupRequest(boolean selected, String name) {
-        this.selected = selected;
+    public LookupRequest(Long id, String name) {
+        this.id = id;
         this.name = name;
     }
 
@@ -14,17 +14,7 @@ public class LookupRequest {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Long getId() {
+        return id;
     }
-
-    public boolean isSelected() {
-        return selected;
-    }
-
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
-
-
 }
