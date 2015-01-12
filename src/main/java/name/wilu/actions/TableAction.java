@@ -8,9 +8,11 @@ import org.apache.struts2.convention.annotation.Result;
 import java.util.Arrays;
 import java.util.List;
 
-
 @Action(value = "table", results = {@Result(location = "table.jsp")})
 public class TableAction extends ActionSupport {
+
+    private Long id;
+    private List<String> selected;
 
     @Override
     public String execute() throws Exception {
@@ -18,6 +20,7 @@ public class TableAction extends ActionSupport {
     }
 
     public String approve() {
+        LOG.info("Approving: " + selected);
         return SUCCESS;
     }
 
@@ -28,7 +31,11 @@ public class TableAction extends ActionSupport {
                 new LookupRequest(3L, "Third lookup"));
     }
 
-    public void setSelected(List<Object> selected) {
-        LOG.info(selected.toString());
+    public void setSelected(List<String> selected) {
+        this.selected = selected;
+    }
+
+    public void setId(String id) {
+        this.id = Long.parseLong(id);
     }
 }

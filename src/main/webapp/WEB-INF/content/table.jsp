@@ -4,11 +4,11 @@
 <script type="text/javascript">
     var lookupRequest = function(){
         var result = {
-            download : function(id) {
+            action : function(id) {
                 //window.alert(id);
                 $.ajax({
-                    url : '/download',
-                    data : {'id' : id},
+                    url : '/table',
+                    data : {'id' : id}
                 });
             }
         }
@@ -21,7 +21,7 @@
             <th>Select</th>
             <th>Lookup ID</th>
             <th>Lookup Name</th>
-            <th>Download</th>
+            <th>Action</th>
         </tr>
         <s:iterator value="lookupRequests" var="request">
             <tr>
@@ -29,9 +29,9 @@
                 <td><s:property value="id"/></td>
                 <td><s:property value="name"/></td>
                 <td><img src="images\excel.png" style="width:30px; height:30px"
-                    onclick="lookupRequest.download($(this).closest('tr').find('td:nth-child(2)').text());"></td>
+                    onclick="lookupRequest.action($(this).closest('tr').find('td:nth-child(2)').text());"></td>
             </tr>
         </s:iterator>
     </table>
-    <s:submit value="Delete" method="approve" />
+    <s:submit value="Approve" method="approve" />
 </s:form>
